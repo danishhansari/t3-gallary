@@ -7,8 +7,8 @@ export default function TopNav() {
   const router = useRouter();
 
   return (
-    <nav className="flex items-center justify-between border-b px-6 py-4 text-xl font-semibold">
-      <div>Gallary</div>
+    <nav className="flex items-center justify-between border-b px-6 h-24 text-xl font-semibold">
+      <button onClick={() => router.push("/")}>T3 Gallary</button>
       <div>
         <SignedOut>
           <SignInButton />

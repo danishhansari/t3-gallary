@@ -10,7 +10,7 @@ import { ourFileRouter } from "./api/uploadthing/core";
 
 export const metadata: Metadata = {
   title: "T3 Gallary",
-  description: "Generated Danish",
+  description: "Built by Danish",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -22,9 +22,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" className={`${GeistSans.variable}`}>
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-        <body className="flex flex-col gap-4">
-          <TopNav />
-          {children}
+        <body>
+          <div className="grid-rows-[auto, 1fr] grid">
+            <TopNav />
+            <main>{children}</main>
+          </div>
           {modal}
           <div id="modal-root" />
         </body>
