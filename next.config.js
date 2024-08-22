@@ -5,7 +5,7 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {
+const coreConfig = {
   images: {
     remotePatterns: [{ hostname: "utfs.io" }],
   },
@@ -16,5 +16,17 @@ const config = {
     ignoreDuringBuilds: true,
   },
 };
+
+import { withSentryConfig } from "@sentry/nextjs";
+
+const config = withSentryConfig(coreConfig, {
+  org: "danish-tw",
+  project: "javascript-nextjs",
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  hideSourceMaps: true,
+  disableLogger: true,
+  automaticVercelMonitors: true,
+});
 
 export default config;
